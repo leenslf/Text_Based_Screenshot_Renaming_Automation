@@ -34,6 +34,6 @@ def process_screenshots(folder_path):
         rename_image(file_path, new_name)
 
 # Path to the folder where screenshots are saved
-screenshot_folder = "/Users/leen/Desktop/Screenshots"
+screenshot_folder = "your/path"
 
 process_screenshots(screenshot_folder)
