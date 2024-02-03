@@ -23,16 +23,25 @@ def rename_image(original_path, new_name):
     os.rename(original_path, new_name)
 
 def process_screenshots(folder_path):
+    # Define a list of acceptable image extensions
+    valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.tiff', '.bmp']
     for filename in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filename)
-        analysis_result = analyze_image(file_path)
-        # Ensure the analysis_result is filename-safe
-        analysis_result = analysis_result.replace("/", "_").replace("\\", "_").replace(" ", "_")
-        # Generating a unique name to avoid overwriting files with the same analysis_result
-        base, extension = os.path.splitext(filename)
-        new_name = os.path.join(folder_path, f"{analysis_result}_{base}{extension}")
-        rename_image(file_path, new_name)
-
+        # Check if the file has a valid image extension
+        if any(filename.lower().endswith(ext) for ext in valid_extensions):
+            file_path = os.path.join(folder_path, filename)
+            try:
+                analysis_result = analyze_image(file_path)
+                # Ensure the analysis_result is filename-safe
+                analysis_result = analysis_result.replace("/", "_").replace("\\", "_").replace(" ", "_")
+                # Generating a new name based solely on the analysis result and the original file extension
+                extension = os.path.splitext(filename)[1]
+                new_name = os.path.join(folder_path, f"{analysis_result}{extension}")
+                rename_image(file_path, new_name)
+            except Exception as e:
+                print(f"Error processing {filename}: {e}")
+        else:
+            print(f"Skipping non-image file: {filename}")
+            
 # Path to the folder where screenshots are saved
 screenshot_folder = "your/path"
 
