@@ -1,4 +1,4 @@
-# Screenshot Organizer for Mac users
+# Screenshot Organizer 
 # Description
 The Screenshot Organizer is a Python-based automation tool designed to analyze screenshots (or any images) added to a specific folder, extract text using Optical Character Recognition (OCR), and then rename the file based on the extracted text for easy categorization and retrieval. This tool aims to simplify managing a large number of screenshots by providing meaningful filenames at a glance.
 
@@ -35,8 +35,6 @@ Modify the path of *screenshot_folder* in the script to the location of your scr
 *GUI Application*: To make this tool more accessible to non-developers, a simple graphical interface will be developed for easy setup and monitoring.
 
 *Smarter Analysis*: Future versions will include more advanced image analysis features for better filename generation.
-
-*Other operating systems*: Future versions will cater to other operating systems.
 
 # Contributing
 Contributions to the Screenshot Organizer are welcome! Please read the CONTRIBUTING.md file for guidelines on how to submit issues, feature requests, and pull requests.
